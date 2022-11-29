@@ -1,0 +1,89 @@
+
+
+/*
+参考drivers\block\xd.c
+参考drivers\block\z2ram.c
+*/
+#include <linux/module.h>
+#include <linux/errno.h>
+#include <linux/interrupt.h>
+#include <linux/mm.h>
+#include <linux/fs.h>
+#include <linux/kernel.h>
+#include <linux/timer.h>
+#include <linux/genhd.h>
+#include <linux/hdreg.h>
+#include <linux/ioport.h>
+#include <linux/init.h>
+#include <linux/wait.h>
+#include <linux/blkdev.h>
+#include <linux/blkpg.h>
+#include <linux/delay.h>
+#include <linux/io.h>
+
+#include <asm/system.h>
+#include <asm/uaccess.h>
+#include <asm/dma.h>
+
+#define RAMBLOCK_SIZE (1024*1024)//设置容量是1M
+
+static struct gendisk *ramblock_disk;
+static request_queue_t *ramblock_queue;
+
+static int major;//主设备号
+
+static DEFINE_SPINLOCK(ramblock_lock);
+
+static struct block_device_operations ramblock_fops = {
+	.owner	= THIS_MODULE,
+};
+
+//请求处理函数
+static void do_ramblock_request(request_queue_t * q)
+{
+	static int cnt = 0;
+	
+	printk("do_ramblock_request %d\n", ++cnt);
+}
+
+//入口函数
+static int ramblock_init(void)
+{
+	/*1. 分配一个gendisk结构体 */
+	ramblock_disk = alloc_disk(16);/* 次设备号个数 : 分区个数 + 1，写为16就是说最多可以创建15个分区 */
+	
+	/* 2. 设置 */
+	/* 2.1 分配/设置队列: 提供读写能力 */
+	ramblock_queue = blk_init_queue(do_ramblock_request, &ramblock_lock);
+	ramblock_disk->queue = ramblock_queue;
+	
+	/* 2.2 设置其他属性: 比如容量 */
+	major = register_blkdev(0, "ramblock");  /* 用命令cat /proc/devices可以查看有哪些设备 */	
+	ramblock_disk->major       = major;
+	ramblock_disk->first_minor = 0;//第1个次设备号
+	sprintf(ramblock_disk->disk_name, "ramblock");
+	ramblock_disk->fops        = &ramblock_fops;//这里是空的操作函数
+	set_capacity(ramblock_disk, RAMBLOCK_SIZE / 512);
+
+	/* 3. 注册 */
+	add_disk(ramblock_disk);
+
+	return 0;
+}
+
+//出口函数
+static void ramblock_exit(void)
+{
+	unregister_blkdev(major, "ramblock");//注销
+	del_gendisk(ramblock_disk);//删除
+	put_disk(ramblock_disk);
+	blk_cleanup_queue(ramblock_queue);//清除
+}
+
+
+module_init(ramblock_init);
+module_exit(ramblock_exit);
+
+MODULE_LICENSE("GPL");
+
+

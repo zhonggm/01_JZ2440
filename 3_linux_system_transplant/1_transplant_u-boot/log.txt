@@ -1,0 +1,259 @@
+book@book-desktop:~/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01$ make
+for dir in tools examples/standalone examples/api arch/arm/cpu/arm920t  ; do \
+                        make -C $dir _depend ; done
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/tools'
+make[1]: Nothing to be done for `_depend'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/tools'
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/examples/standalone'
+make[1]: Nothing to be done for `_depend'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/examples/standalone'
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/examples/api'
+make[1]: Nothing to be done for `_depend'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/examples/api'
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/cpu/arm920t'
+make[1]: Nothing to be done for `_depend'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/cpu/arm920t'
+make -C tools all
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/tools'
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/tools'
+make -C arch/arm/cpu/arm920t start.o
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/cpu/arm920t'
+make[1]: `start.o' is up to date.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/cpu/arm920t'
+make -C api/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/api'
+make[1]: `libapi.o' is up to date.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/api'
+make -C arch/arm/cpu/arm920t/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/cpu/arm920t'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/cpu/arm920t'
+make -C arch/arm/cpu/arm920t/s3c24x0/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/cpu/arm920t/s3c24x0'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/cpu/arm920t/s3c24x0'
+make -C arch/arm/lib/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/lib'
+arm-linux-gcc  -g  -Os   -fno-common -ffixed-r8 -msoft-float  -D__KERNEL__ -DCONFIG_SYS_TEXT_BASE=0x0 -I/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/include -fno-builtin -ffreestanding -nostdinc -isystem /usr/local/arm/4.3.2/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.2/include -pipe  -DCONFIG_ARM -D__ARM__ -marm -mabi=aapcs-linux -mno-thumb-interwork -march=armv4 -Wall -Wstrict-prototypes -fno-stack-protector -Wno-format-nonliteral -Wno-format-security      -o board.o board.c -c
+arm-linux-ld  -r -o libarm.o  board.o bootm.o interrupts.o reset.o cache.o cache-cp15.o
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/lib'
+make -C common/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/common'
+arm-linux-gcc  -g  -Os   -fno-common -ffixed-r8 -msoft-float  -D__KERNEL__ -DCONFIG_SYS_TEXT_BASE=0x0 -I/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/include -fno-builtin -ffreestanding -nostdinc -isystem /usr/local/arm/4.3.2/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.2/include -pipe  -DCONFIG_ARM -D__ARM__ -marm -mabi=aapcs-linux -mno-thumb-interwork -march=armv4 -Wall -Wstrict-prototypes -fno-stack-protector -Wno-format-nonliteral -Wno-format-security      -o cmd_version.o cmd_version.c -c
+arm-linux-gcc  -g  -Os   -fno-common -ffixed-r8 -msoft-float  -D__KERNEL__ -DCONFIG_SYS_TEXT_BASE=0x0 -I/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/include -fno-builtin -ffreestanding -nostdinc -isystem /usr/local/arm/4.3.2/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.2/include -pipe  -DCONFIG_ARM -D__ARM__ -marm -mabi=aapcs-linux -mno-thumb-interwork -march=armv4 -Wall -Wstrict-prototypes -fno-stack-protector -Wno-format-nonliteral -Wno-format-security      -o main.o main.c -c
+arm-linux-ld  -r -o libcommon.o  cmd_bdinfo.o cmd_boot.o cmd_bootm.o cmd_cache.o cmd_console.o cmd_date.o cmd_echo.o cmd_elf.o cmd_exit.o cmd_ext2.o cmd_fat.o cmd_flash.o cmd_help.o cmd_itest.o cmd_load.o cmd_mem.o cmd_misc.o cmd_mtdparts.o cmd_nand.o cmd_net.o cmd_nvedit.o cmd_pcmcia.o cmd_reginfo.o cmd_source.o cmd_test.o cmd_ubi.o cmd_ubifs.o cmd_usb.o cmd_version.o cmd_ximg.o cmd_yaffs2.o command.o console.o dlmalloc.o env_common.o env_flash.o exports.o flash.o hush.o image.o main.o memsize.o s_record.o stdio.o usb.o usb_hub.o usb_kbd.o usb_storage.o xyzModem.o
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/common'
+make -C disk/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/disk'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/disk'
+make -C drivers/bios_emulator/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/bios_emulator'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/bios_emulator'
+make -C drivers/block/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/block'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/block'
+make -C drivers/dma/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/dma'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/dma'
+make -C drivers/fpga/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/fpga'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/fpga'
+make -C drivers/gpio/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/gpio'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/gpio'
+make -C drivers/hwmon/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/hwmon'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/hwmon'
+make -C drivers/i2c/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/i2c'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/i2c'
+make -C drivers/input/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/input'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/input'
+make -C drivers/misc/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/misc'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/misc'
+make -C drivers/mmc/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/mmc'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/mmc'
+make -C drivers/mtd/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/mtd'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/mtd'
+make -C drivers/mtd/nand/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/mtd/nand'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/mtd/nand'
+make -C drivers/mtd/onenand/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/mtd/onenand'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/mtd/onenand'
+make -C drivers/mtd/spi/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/mtd/spi'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/mtd/spi'
+make -C drivers/mtd/ubi/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/mtd/ubi'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/mtd/ubi'
+make -C drivers/net/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/net'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/net'
+make -C drivers/net/phy/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/net/phy'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/net/phy'
+make -C drivers/pci/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/pci'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/pci'
+make -C drivers/pcmcia/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/pcmcia'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/pcmcia'
+make -C drivers/power/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/power'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/power'
+make -C drivers/rtc/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/rtc'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/rtc'
+make -C drivers/serial/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/serial'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/serial'
+make -C drivers/spi/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/spi'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/spi'
+make -C drivers/twserial/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/twserial'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/twserial'
+make -C drivers/usb/eth/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/usb/eth'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/usb/eth'
+make -C drivers/usb/gadget/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/usb/gadget'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/usb/gadget'
+make -C drivers/usb/host/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/usb/host'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/usb/host'
+make -C drivers/usb/musb/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/usb/musb'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/usb/musb'
+make -C drivers/usb/phy/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/usb/phy'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/usb/phy'
+make -C drivers/usb/ulpi/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/usb/ulpi'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/usb/ulpi'
+make -C drivers/video/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/video'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/video'
+make -C drivers/watchdog/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/watchdog'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/drivers/watchdog'
+make -C fs/cramfs/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/cramfs'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/cramfs'
+make -C fs/ext2/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/ext2'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/ext2'
+make -C fs/fat/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/fat'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/fat'
+make -C fs/fdos/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/fdos'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/fdos'
+make -C fs/jffs2/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/jffs2'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/jffs2'
+make -C fs/reiserfs/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/reiserfs'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/reiserfs'
+make -C fs/ubifs/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/ubifs'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/ubifs'
+make -C fs/yaffs2/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/yaffs2'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/fs/yaffs2'
+make -C lib/libfdt/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/lib/libfdt'
+make[1]: `libfdt.o' is up to date.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/lib/libfdt'
+make -C lib/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/lib'
+arm-linux-gcc  -g  -Os   -fno-common -ffixed-r8 -msoft-float  -D__KERNEL__ -DCONFIG_SYS_TEXT_BASE=0x0 -I/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/include -fno-builtin -ffreestanding -nostdinc -isystem /usr/local/arm/4.3.2/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.2/include -pipe  -DCONFIG_ARM -D__ARM__ -marm -mabi=aapcs-linux -mno-thumb-interwork -march=armv4 -Wall -Wstrict-prototypes -fno-stack-protector -Wno-format-nonliteral -Wno-format-security      -o display_options.o display_options.c -c
+arm-linux-ld  -r -o libgeneric.o  bzlib.o bzlib_crctable.o bzlib_decompress.o bzlib_randtable.o bzlib_huffman.o crc7.o crc16.o crc32.o display_options.o errno.o gunzip.o hashtable.o lmb.o ldiv.o net_utils.o qsort.o strmhz.o rbtree.o ctype.o div64.o string.o time.o vsprintf.o
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/lib'
+make -C lib/lzma/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/lib/lzma'
+make[1]: `liblzma.o' is up to date.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/lib/lzma'
+make -C lib/lzo/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/lib/lzo'
+make[1]: `liblzo.o' is up to date.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/lib/lzo'
+make -C lib/zlib/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/lib/zlib'
+make[1]: `libz.o' is up to date.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/lib/zlib'
+make -C net/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/net'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/net'
+make -C post/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/post'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/post'
+make -C board/samsung/smdk2410/
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/board/samsung/smdk2410'
+arm-linux-gcc   -D__ASSEMBLY__ -g  -Os   -fno-common -ffixed-r8 -msoft-float  -D__KERNEL__ -DCONFIG_SYS_TEXT_BASE=0x0 -I/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/include -fno-builtin -ffreestanding -nostdinc -isystem /usr/local/arm/4.3.2/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.2/include -pipe  -DCONFIG_ARM -D__ARM__ -marm -mabi=aapcs-linux -mno-thumb-interwork -march=armv4   -o lowlevel_init.o lowlevel_init.S -c
+arm-linux-ld  -r -o libsmdk2410.o  smdk2410.o lowlevel_init.o
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/board/samsung/smdk2410'
+make -C /home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/cpu/ u-boot.lds
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/cpu'
+make[1]: Nothing to be done for `u-boot.lds'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/cpu'
+UNDEF_SYM=`arm-linux-objdump -x board/samsung/smdk2410/libsmdk2410.o api/libapi.o arch/arm/cpu/arm920t/libarm920t.o arch/arm/cpu/arm920t/s3c24x0/libs3c24x0.o arch/arm/lib/libarm.o common/libcommon.o disk/libdisk.o drivers/bios_emulator/libatibiosemu.o drivers/block/libblock.o drivers/dma/libdma.o drivers/fpga/libfpga.o drivers/gpio/libgpio.o drivers/hwmon/libhwmon.o drivers/i2c/libi2c.o drivers/input/libinput.o drivers/misc/libmisc.o drivers/mmc/libmmc.o drivers/mtd/libmtd.o drivers/mtd/nand/libnand.o drivers/mtd/onenand/libonenand.o drivers/mtd/spi/libspi_flash.o drivers/mtd/ubi/libubi.o drivers/net/libnet.o drivers/net/phy/libphy.o drivers/pci/libpci.o drivers/pcmcia/libpcmcia.o drivers/power/libpower.o drivers/rtc/librtc.o drivers/serial/libserial.o drivers/spi/libspi.o drivers/twserial/libtws.o drivers/usb/eth/libusb_eth.o drivers/usb/gadget/libusb_gadget.o drivers/usb/host/libusb_host.o drivers/usb/musb/libusb_musb.o drivers/usb/phy/libusb_phy.o drivers/usb/ulpi/libusb_ulpi.o drivers/video/libvideo.o drivers/watchdog/libwatchdog.o fs/cramfs/libcramfs.o fs/ext2/libext2fs.o fs/fat/libfat.o fs/fdos/libfdos.o fs/jffs2/libjffs2.o fs/reiserfs/libreiserfs.o fs/ubifs/libubifs.o fs/yaffs2/libyaffs2.o lib/libfdt/libfdt.o lib/libgeneric.o lib/lzma/liblzma.o lib/lzo/liblzo.o lib/zlib/libz.o net/libnet.o post/libpost.o | sed  -n -e 's/.*\(__u_boot_cmd_.*\)/-u\1/p'|sort|uniq`; cd /home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01 && arm-linux-ld  -pie -T u-boot.lds -Bstatic -Ttext 0x0 $UNDEF_SYM arch/arm/cpu/arm920t/start.o --start-group api/libapi.o arch/arm/cpu/arm920t/libarm920t.o arch/arm/cpu/arm920t/s3c24x0/libs3c24x0.o arch/arm/lib/libarm.o common/libcommon.o disk/libdisk.o drivers/bios_emulator/libatibiosemu.o drivers/block/libblock.o drivers/dma/libdma.o drivers/fpga/libfpga.o drivers/gpio/libgpio.o drivers/hwmon/libhwmon.o drivers/i2c/libi2c.o drivers/input/libinput.o drivers/misc/libmisc.o drivers/mmc/libmmc.o drivers/mtd/libmtd.o drivers/mtd/nand/libnand.o drivers/mtd/onenand/libonenand.o drivers/mtd/spi/libspi_flash.o drivers/mtd/ubi/libubi.o drivers/net/libnet.o drivers/net/phy/libphy.o drivers/pci/libpci.o drivers/pcmcia/libpcmcia.o drivers/power/libpower.o drivers/rtc/librtc.o drivers/serial/libserial.o drivers/spi/libspi.o drivers/twserial/libtws.o drivers/usb/eth/libusb_eth.o drivers/usb/gadget/libusb_gadget.o drivers/usb/host/libusb_host.o drivers/usb/musb/libusb_musb.o drivers/usb/phy/libusb_phy.o drivers/usb/ulpi/libusb_ulpi.o drivers/video/libvideo.o drivers/watchdog/libwatchdog.o fs/cramfs/libcramfs.o fs/ext2/libext2fs.o fs/fat/libfat.o fs/fdos/libfdos.o fs/jffs2/libjffs2.o fs/reiserfs/libreiserfs.o fs/ubifs/libubifs.o fs/yaffs2/libyaffs2.o lib/libfdt/libfdt.o lib/libgeneric.o lib/lzma/liblzma.o lib/lzo/liblzo.o lib/zlib/libz.o net/libnet.o post/libpost.o board/samsung/smdk2410/libsmdk2410.o --end-group /home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/arch/arm/lib/eabi_compat.o  -L /usr/local/arm/4.3.2/bin/../lib/gcc/arm-none-linux-gnueabi/4.3.2/armv4t -lgcc -Map u-boot.map -o u-boot
+arm-linux-objcopy -O srec u-boot u-boot.srec
+arm-linux-objcopy --gap-fill=0xff -O binary u-boot u-boot.bin
+make -C examples/standalone all
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/examples/standalone'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/examples/standalone'
+make -C examples/api all
+make[1]: Entering directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/examples/api'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/book/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01/examples/api'
+book@book-desktop:~/workspace/3_sys_transplant/1_transplant_u-boot/u-boot-2012.04.01$

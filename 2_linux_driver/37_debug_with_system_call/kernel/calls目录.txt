@@ -1,0 +1,5 @@
+D:\BaiduNetdiskDownload\study code\linux-2.6.22.6\arch\arm\kernel\calls.S
+
+D:\BaiduNetdiskDownload\study code\linux-2.6.22.6\fs\read_write.c
+
+D:\BaiduNetdiskDownload\study code\linux-2.6.22.6\include\linux\syscalls.h

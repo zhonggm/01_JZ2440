@@ -1,0 +1,42 @@
+# insmod mymsg.ko
+# insmod first_drv.ko
+# ./firstdrv_test on
+# ./firstdrv_test off
+# cat /proc/mymsg
+Unable to handle kernel paging request at virtual address e59f3008
+pgd = c3e88000
+[e59f3008] *pgd=00000000
+Internal error: Oops: 5 [#1]
+Modules linked in: first_drv mymsg
+CPU: 0    Not tainted  (2.6.22.6 #9)
+PC is at __dentry_open+0x88/0x1e8
+LR is at nameidata_to_filp+0x34/0x48
+pc : [<c0088dd0>]    lr : [<c0088f64>]    psr: a0000013
+sp : c3e8fec0  ip : 0000000d  fp : c3e8fee4
+r10: c3e9a000  r9 : c3e8e000  r8 : c3e93ec4
+r7 : c0467f20  r6 : 00000000  r5 : c046fc40  r4 : c0492620
+r3 : bf0002d8  r2 : c0492640  r1 : e59f3008  r0 : 00000000
+Flags: NzCv  IRQs on  FIQs on  Mode SVC_32  Segment user
+Control: c000717f  Table: 33e88000  DAC: 00000015
+Process cat (pid: 784, stack limit = 0xc3e8e258)
+Stack: (0xc3e8fec0 to 0xc3e90000)
+fec0: c0492620 c3e8ff04 00000003 ffffff9c c002b044 c3e9a000 c3e8fefc c3e8fee8
+fee0: c0088f64 c0088d58 00000000 00020000 c3e8ff68 c3e8ff00 c0088fb8 c0088f40
+ff00: c3e8ff04 c3e93ec4 c0467f20 00000000 00000000 c3e89000 00000101 00000001
+ff20: 00000000 c3e8e000 c0475088 c0475080 ffffffe8 c3e9a000 c3e8ff68 c3e8ff48
+ff40: c008916c c009ec70 00020001 00000000 c0492620 00020000 00000000 c3e8ff94
+ff60: c3e8ff6c c00892f4 c0088f88 00000000 00000000 00000000 bec05f94 00000005
+ff80: c002b044 4021765c c3e8ffa4 c3e8ff98 c00893a8 c00892b0 00000000 c3e8ffa8
+ffa0: c002aea0 c0089394 00000000 00000000 bec05f94 00020000 00000000 00000000
+ffc0: 00000000 00000000 bec05f94 bec05ee8 00000000 000c7bf8 4021765c 00000002
+ffe0: 401ad940 bec05cc4 0004222c 401ad984 60000010 bec05f94 00000000 00000000
+Backtrace:
+[<c0088d48>] (__dentry_open+0x0/0x1e8) from [<c0088f64>] (nameidata_to_filp+0x34/0x48)
+[<c0088f30>] (nameidata_to_filp+0x0/0x48) from [<c0088fb8>] (do_filp_open+0x40/0x48)
+ r4:00020000
+[<c0088f78>] (do_filp_open+0x0/0x48) from [<c00892f4>] (do_sys_open+0x54/0xe4)
+ r5:00000000 r4:00020000
+[<c00892a0>] (do_sys_open+0x0/0xe4) from [<c00893a8>] (sys_open+0x24/0x28)
+[<c0089384>] (sys_open+0x0/0x28) from [<c002aea0>] (ret_fast_syscall+0x0/0x2c)
+Code: 0a00000e e5931000 e3510000 0a000009 (e5913000)
+Segmentation fault

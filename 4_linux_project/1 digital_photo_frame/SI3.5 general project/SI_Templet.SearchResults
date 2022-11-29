@@ -1,0 +1,9 @@
+---- SelectAndInitDisplay Matches (8 in 6 files) ----
+Draw.c (d:\baidunetdiskdownload\study code\4_project\05.show_file\04.show_file\draw):SelectAndInitDisplay(char *pcName)
+Draw.c (d:\baidunetdiskdownload\study code\4_project\08.show_file_pc\draw):int SelectAndInitDisplay(char *pcName)
+Draw.h (d:\baidunetdiskdownload\study code\4_project\05.show_file\04.show_file\include):int SelectAndInitDisplay(char *pcName);
+Draw.h (d:\baidunetdiskdownload\study code\4_project\08.show_file_pc\include):int SelectAndInitDisplay(char *pcName);
+Main.c (d:\baidunetdiskdownload\study code\4_project\05.show_file\04.show_file):	iError = SelectAndInitDisplay(acDisplay);
+Main.c (d:\baidunetdiskdownload\study code\4_project\05.show_file\04.show_file):		DBG_PRINTF("SelectAndInitDisplay error!\n");
+Main.c (d:\baidunetdiskdownload\study code\4_project\08.show_file_pc):	iError = SelectAndInitDisplay(acDisplay);
+Main.c (d:\baidunetdiskdownload\study code\4_project\08.show_file_pc):		printf("SelectAndInitDisplay error!\n");

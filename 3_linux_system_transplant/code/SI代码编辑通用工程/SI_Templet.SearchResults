@@ -1,0 +1,12 @@
+---- nand_reset Matches (13 in 1 files) ----
+Nand.c (c:\users\administrator\desktop\裸机源码\nand):    void (*nand_reset)(void);
+Nand.c (c:\users\administrator\desktop\裸机源码\nand):static void nand_reset(void);
+Nand.c (c:\users\administrator\desktop\裸机源码\nand):static void s3c2410_nand_reset(void);
+Nand.c (c:\users\administrator\desktop\裸机源码\nand):static void s3c2440_nand_reset(void);
+Nand.c (c:\users\administrator\desktop\裸机源码\nand):static void s3c2410_nand_reset(void)
+Nand.c (c:\users\administrator\desktop\裸机源码\nand):static void s3c2440_nand_reset(void)
+Nand.c (c:\users\administrator\desktop\裸机源码\nand):static void nand_reset(void)
+Nand.c (c:\users\administrator\desktop\裸机源码\nand):    nand_chip.nand_reset();
+Nand.c (c:\users\administrator\desktop\裸机源码\nand):        nand_chip.nand_reset         = s3c2410_nand_reset;
+Nand.c (c:\users\administrator\desktop\裸机源码\nand):        nand_chip.nand_reset         = s3c2440_nand_reset;
+Nand.c (c:\users\administrator\desktop\裸机源码\nand):    nand_reset();

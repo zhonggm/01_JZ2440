@@ -1,0 +1,4 @@
+---- __NR_brk Matches (3 in 3 files) ----
+Brk.c (sysdeps\unix\sysv\linux\sparc\sparc32):    register int g1 __asm__("%g1") = __NR_brk;
+brk.S (sysdeps\unix\sysv\linux\alpha):	ldiq	v0, __NR_brk
+brk.S (sysdeps\unix\sysv\linux\ia64):	DO_CALL(__NR_brk)
