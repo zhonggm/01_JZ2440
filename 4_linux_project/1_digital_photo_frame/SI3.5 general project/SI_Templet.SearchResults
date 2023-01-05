@@ -1,0 +1,3 @@
+---- T_PicFileParser Matches (2 in 2 files) ----
+Bmp.c (d:\baidunetdiskdownload\study code\01_jz2440\4_linux_project\1_digital_photo_frame\15.digial_photo\render\format):T_PicFileParser g_tBMPParser = {
+Main.c (d:\baidunetdiskdownload\study code\01_jz2440\4_linux_project\1_digital_photo_frame\15.digial_photo):	extern T_PicFileParser g_tBMPParser;
