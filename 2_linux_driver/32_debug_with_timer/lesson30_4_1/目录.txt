@@ -1,5 +1,0 @@
-d:\baidunetdiskdownload\study code\linux-2.6.22.6\arch\arm\plat-s3c24xx\Time.c
-
-/home/book/workspace/1to2/linux-2.6.22.6/arch/arm/plat-s3c24xx
-
-
