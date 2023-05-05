@@ -1,4 +1,0 @@
----- GetDispOpr Matches (3 in 3 files) ----
-Disp_manager.c (d:\baidunetdiskdownload\study code\4_project\04.show_file_ok\04.show_file\display):PT_DispOpr GetDispOpr(char *pcName)
-Draw.c (d:\baidunetdiskdownload\study code\4_project\04.show_file_ok\04.show_file\draw):	g_ptDispOpr = GetDispOpr(pcName);
-Encoding_manager.h (d:\baidunetdiskdownload\study code\4_project\04.show_file_ok\04.show_file\include):PT_DispOpr GetDispOpr(char *pcName);
